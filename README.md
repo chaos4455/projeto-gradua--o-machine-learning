@@ -8,8 +8,6 @@ Este documento descreve o pipeline de predição de salário, um sistema de proc
 
 🚀 Este pipeline utiliza uma arquitetura de microsserviços, inspirada na elegância e eficiência da natureza, como a intrincada rede de um formigueiro.  Cada componente opera de forma independente, permitindo escalabilidade e flexibilidade.  A modularidade permite que cada parte seja atualizada e melhorada sem afetar o funcionamento do sistema como um todo.
 
-![Arquitetura do Pipeline](arquitetura.png)  **(Diagrama a ser adicionado)**
-
 ![Cursor_qUZuTbPWzw](https://github.com/user-attachments/assets/27454687-05dc-42ad-83a6-7a090c562c99)
 
 ![Cursor_0JhKphQJcm](https://github.com/user-attachments/assets/2ab81073-ca30-490e-b748-9be6fc9f441f)
