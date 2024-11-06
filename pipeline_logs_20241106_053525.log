@@ -1,0 +1,96 @@
+2024-11-06 05:35:25,889 - MainThread - INFO - Iniciando Pipeline V2...
+2024-11-06 05:35:25,891 - Gerador - INFO - Iniciando Gerador
+2024-11-06 05:35:25,894 - Gerador - ERROR - Erro no serviço Gerador: 'PipelineService' object has no attribute '_monitor_process'
+2024-11-06 05:35:25,894 - Gerador - INFO - Tentando reiniciar Gerador em 5 segundos...
+2024-11-06 05:35:27,652 - Thread-2 (_monitor_output) - INFO - Gerador stderr: F:\MEGASYNC\projeto graduaÃ§Ã£o machine learning\gerador_stream.py:29: DeprecationWarning:
+2024-11-06 05:35:27,652 - Thread-2 (_monitor_output) - INFO - Gerador stderr: on_event is deprecated, use lifespan event handlers instead.
+2024-11-06 05:35:27,653 - Thread-2 (_monitor_output) - INFO - Gerador stderr: 
+2024-11-06 05:35:27,654 - Thread-2 (_monitor_output) - INFO - Gerador stderr: Read more about it in the
+2024-11-06 05:35:27,654 - Thread-2 (_monitor_output) - INFO - Gerador stderr: [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+2024-11-06 05:35:27,654 - Thread-2 (_monitor_output) - INFO - Gerador stderr: 
+2024-11-06 05:35:27,655 - Thread-2 (_monitor_output) - INFO - Gerador stderr: @app.on_event("startup")
+2024-11-06 05:35:27,655 - Thread-2 (_monitor_output) - INFO - Gerador stderr: INFO:     Will watch for changes in these directories: ['F:\\MEGASYNC\\projeto graduaÃ§Ã£o machine learning']
+2024-11-06 05:35:27,656 - Thread-2 (_monitor_output) - INFO - Gerador stderr: INFO:     Uvicorn running on http://0.0.0.0:8001 (Press CTRL+C to quit)
+2024-11-06 05:35:27,657 - Thread-2 (_monitor_output) - INFO - Gerador stderr: INFO:     Started reloader process [5648] using WatchFiles
+2024-11-06 05:35:27,892 - Normalizador - INFO - Iniciando Normalizador
+2024-11-06 05:35:27,894 - Normalizador - ERROR - Erro no serviço Normalizador: 'PipelineService' object has no attribute '_monitor_process'
+2024-11-06 05:35:27,895 - Normalizador - INFO - Tentando reiniciar Normalizador em 5 segundos...
+2024-11-06 05:35:29,413 - Thread-2 (_monitor_output) - INFO - Gerador stderr: INFO:     Started server process [13668]
+2024-11-06 05:35:29,414 - Thread-2 (_monitor_output) - INFO - Gerador stderr: INFO:     Waiting for application startup.
+2024-11-06 05:35:29,419 - Thread-2 (_monitor_output) - INFO - Gerador stderr: INFO:     Application startup complete.
+2024-11-06 05:35:29,893 - Treinador - INFO - Iniciando Treinador
+2024-11-06 05:35:29,895 - Treinador - ERROR - Erro no serviço Treinador: 'PipelineService' object has no attribute '_monitor_process'
+2024-11-06 05:35:29,896 - Treinador - INFO - Tentando reiniciar Treinador em 5 segundos...
+2024-11-06 05:35:30,425 - Thread-4 (_monitor_output) - INFO - Normalizador stderr: F:\MEGASYNC\projeto graduaÃ§Ã£o machine learning\normalizador_stream.py:31: DeprecationWarning:
+2024-11-06 05:35:30,426 - Thread-4 (_monitor_output) - INFO - Normalizador stderr: on_event is deprecated, use lifespan event handlers instead.
+2024-11-06 05:35:30,426 - Thread-4 (_monitor_output) - INFO - Normalizador stderr: 
+2024-11-06 05:35:30,426 - Thread-4 (_monitor_output) - INFO - Normalizador stderr: Read more about it in the
+2024-11-06 05:35:30,427 - Thread-4 (_monitor_output) - INFO - Normalizador stderr: [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+2024-11-06 05:35:30,427 - Thread-4 (_monitor_output) - INFO - Normalizador stderr: 
+2024-11-06 05:35:30,427 - Thread-4 (_monitor_output) - INFO - Normalizador stderr: @app.on_event("startup")
+2024-11-06 05:35:30,428 - Thread-4 (_monitor_output) - INFO - Normalizador stderr: INFO:     Will watch for changes in these directories: ['F:\\MEGASYNC\\projeto graduaÃ§Ã£o machine learning']
+2024-11-06 05:35:30,428 - Thread-4 (_monitor_output) - INFO - Normalizador stderr: INFO:     Uvicorn running on http://0.0.0.0:8002 (Press CTRL+C to quit)
+2024-11-06 05:35:30,429 - Thread-4 (_monitor_output) - INFO - Normalizador stderr: INFO:     Started reloader process [5600] using WatchFiles
+2024-11-06 05:35:31,894 - Consumidor - INFO - Iniciando Consumidor
+2024-11-06 05:35:31,896 - Consumidor - ERROR - Erro no serviço Consumidor: 'PipelineService' object has no attribute '_monitor_process'
+2024-11-06 05:35:31,897 - Consumidor - INFO - Tentando reiniciar Consumidor em 5 segundos...
+2024-11-06 05:35:32,830 - Thread-6 (_monitor_output) - INFO - Treinador stderr: F:\MEGASYNC\projeto graduaÃ§Ã£o machine learning\treinador_stream.py:39: DeprecationWarning:
+2024-11-06 05:35:32,833 - Thread-6 (_monitor_output) - INFO - Treinador stderr: on_event is deprecated, use lifespan event handlers instead.
+2024-11-06 05:35:32,834 - Thread-6 (_monitor_output) - INFO - Treinador stderr: 
+2024-11-06 05:35:32,834 - Thread-6 (_monitor_output) - INFO - Treinador stderr: Read more about it in the
+2024-11-06 05:35:32,835 - Thread-6 (_monitor_output) - INFO - Treinador stderr: [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+2024-11-06 05:35:32,835 - Thread-6 (_monitor_output) - INFO - Treinador stderr: 
+2024-11-06 05:35:32,835 - Thread-6 (_monitor_output) - INFO - Treinador stderr: @app.on_event("startup")
+2024-11-06 05:35:32,836 - Thread-6 (_monitor_output) - INFO - Treinador stderr: INFO:     Will watch for changes in these directories: ['F:\\MEGASYNC\\projeto graduaÃ§Ã£o machine learning']
+2024-11-06 05:35:32,836 - Thread-6 (_monitor_output) - INFO - Treinador stderr: INFO:     Uvicorn running on http://0.0.0.0:8003 (Press CTRL+C to quit)
+2024-11-06 05:35:32,836 - Thread-6 (_monitor_output) - INFO - Treinador stderr: INFO:     Started reloader process [8816] using WatchFiles
+2024-11-06 05:35:33,380 - Thread-4 (_monitor_output) - INFO - Normalizador stderr: INFO:     Started server process [14648]
+2024-11-06 05:35:33,381 - Thread-4 (_monitor_output) - INFO - Normalizador stderr: INFO:     Waiting for application startup.
+2024-11-06 05:35:33,653 - Thread-8 (_monitor_output) - INFO - Consumidor stderr: F:\MEGASYNC\projeto graduaÃ§Ã£o machine learning\consumidor_stream.py:30: DeprecationWarning:
+2024-11-06 05:35:33,654 - Thread-8 (_monitor_output) - INFO - Consumidor stderr: on_event is deprecated, use lifespan event handlers instead.
+2024-11-06 05:35:33,655 - Thread-8 (_monitor_output) - INFO - Consumidor stderr: 
+2024-11-06 05:35:33,655 - Thread-8 (_monitor_output) - INFO - Consumidor stderr: Read more about it in the
+2024-11-06 05:35:33,655 - Thread-8 (_monitor_output) - INFO - Consumidor stderr: [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+2024-11-06 05:35:33,656 - Thread-8 (_monitor_output) - INFO - Consumidor stderr: 
+2024-11-06 05:35:33,656 - Thread-8 (_monitor_output) - INFO - Consumidor stderr: @app.on_event("startup")
+2024-11-06 05:35:33,657 - Thread-8 (_monitor_output) - INFO - Consumidor stderr: INFO:     Will watch for changes in these directories: ['F:\\MEGASYNC\\projeto graduaÃ§Ã£o machine learning']
+2024-11-06 05:35:33,657 - Thread-8 (_monitor_output) - INFO - Consumidor stderr: INFO:     Uvicorn running on http://0.0.0.0:8005 (Press CTRL+C to quit)
+2024-11-06 05:35:33,657 - Thread-8 (_monitor_output) - INFO - Consumidor stderr: INFO:     Started reloader process [1208] using WatchFiles
+2024-11-06 05:35:33,895 - MainThread - INFO - Mensagem do serviço: {'service': 'Gerador', 'status': 'started', 'timestamp': '2024-11-06T05:35:25.894583'}
+2024-11-06 05:35:33,895 - MainThread - INFO - Mensagem do serviço: {'service': 'Normalizador', 'status': 'started', 'timestamp': '2024-11-06T05:35:27.894235'}
+2024-11-06 05:35:33,896 - MainThread - INFO - Mensagem do serviço: {'service': 'Treinador', 'status': 'started', 'timestamp': '2024-11-06T05:35:29.895147'}
+2024-11-06 05:35:33,896 - MainThread - INFO - Mensagem do serviço: {'service': 'Consumidor', 'status': 'started', 'timestamp': '2024-11-06T05:35:31.896347'}
+2024-11-06 05:35:33,897 - MainThread - WARNING - Serviço Gerador morto, reiniciando...
+2024-11-06 05:35:33,897 - MainThread - ERROR - Erro no monitoramento: threads can only be started once
+2024-11-06 05:35:34,898 - MainThread - WARNING - Serviço Gerador morto, reiniciando...
+2024-11-06 05:35:34,898 - MainThread - ERROR - Erro no monitoramento: threads can only be started once
+2024-11-06 05:35:35,237 - Thread-8 (_monitor_output) - INFO - Consumidor stderr: INFO:     Started server process [12412]
+2024-11-06 05:35:35,238 - Thread-8 (_monitor_output) - INFO - Consumidor stderr: INFO:     Waiting for application startup.
+2024-11-06 05:35:35,436 - Thread-1 (_monitor_output) - INFO - Gerador stdout: INFO:     127.0.0.1:3246 - "GET /dados HTTP/1.1" 200 OK
+2024-11-06 05:35:35,442 - Thread-4 (_monitor_output) - INFO - Normalizador stderr: INFO:     Application startup complete.
+2024-11-06 05:35:35,870 - Thread-6 (_monitor_output) - INFO - Treinador stderr: INFO:     Started server process [7444]
+2024-11-06 05:35:35,871 - Thread-6 (_monitor_output) - INFO - Treinador stderr: INFO:     Waiting for application startup.
+2024-11-06 05:35:35,899 - MainThread - WARNING - Serviço Gerador morto, reiniciando...
+2024-11-06 05:35:35,899 - MainThread - ERROR - Erro no monitoramento: threads can only be started once
+2024-11-06 05:35:36,901 - MainThread - WARNING - Serviço Gerador morto, reiniciando...
+2024-11-06 05:35:36,901 - MainThread - ERROR - Erro no monitoramento: threads can only be started once
+2024-11-06 05:35:37,903 - MainThread - WARNING - Serviço Gerador morto, reiniciando...
+2024-11-06 05:35:37,903 - MainThread - ERROR - Erro no monitoramento: threads can only be started once
+2024-11-06 05:35:37,909 - Thread-3 (_monitor_output) - INFO - Normalizador stdout: INFO:     127.0.0.1:3251 - "GET /dados_normalizados HTTP/1.1" 200 OK
+2024-11-06 05:35:38,026 - Thread-6 (_monitor_output) - INFO - Treinador stderr: INFO:     Application startup complete.
+2024-11-06 05:35:38,281 - Thread-6 (_monitor_output) - INFO - Treinador stderr: C:\Users\estudo\AppData\Roaming\Python\Python311\site-packages\sklearn\base.py:493: UserWarning: X does not have valid feature names, but RandomForestRegressor was fitted with feature names
+2024-11-06 05:35:38,282 - Thread-6 (_monitor_output) - INFO - Treinador stderr: warnings.warn(
+2024-11-06 05:35:38,285 - Thread-5 (_monitor_output) - INFO - Treinador stdout: INFO:     127.0.0.1:3250 - "POST /predict HTTP/1.1" 200 OK
+2024-11-06 05:35:38,286 - Thread-8 (_monitor_output) - INFO - Consumidor stderr: INFO:     Application startup complete.
+2024-11-06 05:35:38,903 - MainThread - WARNING - Serviço Gerador morto, reiniciando...
+2024-11-06 05:35:38,903 - MainThread - ERROR - Erro no monitoramento: threads can only be started once
+2024-11-06 05:35:39,906 - MainThread - WARNING - Serviço Gerador morto, reiniciando...
+2024-11-06 05:35:39,906 - MainThread - ERROR - Erro no monitoramento: threads can only be started once
+2024-11-06 05:35:40,052 - Thread-1 (_monitor_output) - INFO - Gerador stdout: INFO:     127.0.0.1:3253 - "GET /dados HTTP/1.1" 200 OK
+2024-11-06 05:35:40,907 - MainThread - WARNING - Serviço Gerador morto, reiniciando...
+2024-11-06 05:35:40,907 - MainThread - ERROR - Erro no monitoramento: threads can only be started once
+2024-11-06 05:35:41,908 - MainThread - WARNING - Serviço Gerador morto, reiniciando...
+2024-11-06 05:35:41,908 - MainThread - ERROR - Erro no monitoramento: threads can only be started once
+2024-11-06 05:35:42,059 - Thread-3 (_monitor_output) - INFO - Normalizador stdout: INFO:     127.0.0.1:3265 - "GET /dados_normalizados HTTP/1.1" 200 OK
+2024-11-06 05:35:42,909 - MainThread - WARNING - Serviço Gerador morto, reiniciando...
+2024-11-06 05:35:42,909 - MainThread - ERROR - Erro no monitoramento: threads can only be started once

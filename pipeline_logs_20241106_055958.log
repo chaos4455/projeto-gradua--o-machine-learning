@@ -1,0 +1,7 @@
+2024-11-06 05:59:58,093 - StreamPipelineLauncher - INFO - Iniciando Pipeline de Streaming...
+2024-11-06 05:59:58,097 - StreamPipelineLauncher - WARNING - Porta 8001 ocupada. Tentativa 1 de 3 para iniciar Gerador de Dados. Tentando novamente em 10 segundos...
+2024-11-06 06:00:10,143 - StreamPipelineLauncher - INFO - Iniciado Gerador de Dados na porta 8001 (PID: 4852)
+2024-11-06 06:00:17,165 - StreamPipelineLauncher - INFO - Iniciado Normalizador na porta 8002 (PID: 15064)
+2024-11-06 06:00:24,179 - StreamPipelineLauncher - INFO - Iniciado Treinador na porta 8003 (PID: 8460)
+2024-11-06 06:00:31,220 - StreamPipelineLauncher - INFO - Iniciado Consumidor na porta 8005 (PID: 16704)
+2024-11-06 06:00:38,281 - StreamPipelineLauncher - INFO - Último consumo: 0.019714397007137178 em 2024-11-06T06:00:32.621220

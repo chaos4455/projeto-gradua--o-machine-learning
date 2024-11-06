@@ -1,0 +1,12 @@
+2024-11-06 05:32:26,974 - StreamPipelineLauncher - INFO - Iniciando Pipeline de Streaming...
+2024-11-06 05:32:29,000 - StreamPipelineLauncher - INFO - Iniciado Gerador de Dados na porta 8001 (PID: 16196)
+2024-11-06 05:32:36,018 - StreamPipelineLauncher - INFO - Iniciado Normalizador na porta 8002 (PID: 14688)
+2024-11-06 05:32:43,060 - StreamPipelineLauncher - INFO - Iniciado Treinador na porta 8003 (PID: 11084)
+2024-11-06 05:32:50,102 - StreamPipelineLauncher - INFO - Iniciado Consumidor na porta 8005 (PID: 11028)
+2024-11-06 05:33:22,644 - StreamPipelineLauncher - INFO - Sinal de interrupção recebido. Iniciando parada graciosa...
+2024-11-06 05:33:22,645 - StreamPipelineLauncher - INFO - Finalizando Pipeline de Streaming...
+2024-11-06 05:33:22,678 - StreamPipelineLauncher - INFO - Serviço Consumidor finalizado
+2024-11-06 05:33:22,698 - StreamPipelineLauncher - INFO - Serviço Treinador finalizado
+2024-11-06 05:33:22,722 - StreamPipelineLauncher - INFO - Serviço Normalizador finalizado
+2024-11-06 05:33:22,760 - StreamPipelineLauncher - INFO - Serviço Gerador de Dados finalizado
+2024-11-06 05:33:22,859 - StreamPipelineLauncher - INFO - Pipeline finalizado

@@ -1,0 +1,12 @@
+body {
+  font-family: sans-serif;
+}
+
+div {
+  margin-bottom: 10px;
+}
+
+#result {
+  font-weight: bold;
+  margin-top: 10px;
+}

@@ -1,0 +1,67 @@
+title: "Modelo de Predição de Salário"
+description: "Este documento descreve o modelo de machine learning usado para prever o salário com base na idade."
+version: 1.0
+date: 2024-11-07
+overview: |
+  🎉 Este modelo utiliza um RandomForestRegressor para prever o salário de um indivíduo com base em sua idade.  📊 Ele foi treinado com dados sintéticos gerados, normalizados e processados em um pipeline de streaming.  🚀 O modelo é parte de um sistema robusto e escalável, projetado para fornecer previsões em tempo real.
+data_generation: |
+  ➡️ Dados sintéticos são gerados usando a biblioteca Faker, simulando informações realistas como nome, idade, salário, cidade e cargo.  ⚙️  O gerador produz um fluxo contínuo de dados, garantindo a disponibilidade de informações para o treinamento do modelo.
+data_normalization: |
+  🔄 Os dados brutos são normalizados usando StandardScaler para garantir que todas as features tenham a mesma escala.  Isso melhora a performance do modelo e evita que features com valores maiores dominem o processo de treinamento.
+model_training: |
+  🏋️‍♂️ O modelo RandomForestRegressor é treinado com os dados normalizados.  🌳  O RandomForestRegressor é um algoritmo robusto e eficiente, capaz de lidar com dados complexos e não-lineares.  📈  O modelo é treinado periodicamente, garantindo que ele esteja sempre atualizado com os dados mais recentes.
+model_consumption: |
+  🎯 O modelo pode ser consumido via uma API RESTful, que aceita a idade como entrada e retorna a previsão de salário.  🔌  A API é simples e fácil de usar, permitindo a integração com outros sistemas.  💡  A resposta da API inclui um timestamp e o timestamp do último treinamento do modelo.
+data_extraction: |
+  💡 Dados extraídos:
+    * **Previsão de Salário:** O principal resultado do modelo.
+    * **Timestamp da Previsão:** Indica quando a previsão foi feita.
+    * **Timestamp do Modelo:** Indica quando o modelo foi treinado pela última vez.
+metrics: |
+  ✅ Métricas de performance (a serem adicionadas após testes mais completos):
+    * RMSE
+    * R²
+    * MAE
+limitations: |
+  ⚠️ Limitações:
+    * O modelo foi treinado com dados sintéticos, que podem não refletir perfeitamente a realidade.
+    * A precisão do modelo depende da qualidade dos dados de entrada.
+    * A performance do modelo pode variar ao longo do tempo.
+future_improvements: |
+  🚀 Melhorias futuras:
+    * Incluir mais features para melhorar a precisão do modelo.
+    * Testar diferentes algoritmos de machine learning.
+    * Implementar um sistema de monitoramento mais completo.
+monitoring: |
+  👁️‍🗨️ O pipeline é monitorado continuamente para garantir a disponibilidade e a performance dos serviços.  🚨  Logs detalhados são gerados para facilitar a detecção e resolução de problemas.
+deployment: |
+  ☁️ O modelo pode ser implantado em diferentes ambientes, como servidores locais ou na nuvem.  📦  A arquitetura modular do pipeline facilita a implantação e a manutenção do sistema.
+contact: |
+  📧 Para dúvidas ou suporte, entre em contato com [email protected]
+appendix: |
+  📚 Anexos:
+    * Códigos-fonte dos serviços.
+    * Relatórios de testes.
+    * Dados de treinamento.
+
+# Placeholder para ícones e emojis (substituir por imagens reais)
+# ➡️  :arrow_right:
+# 🎉 :partying_face:
+# 📊 :bar_chart:
+# 🚀 :rocket:
+# ⚙️ :gear:
+# 🔄 :arrows_counterclockwise:
+# 🏋️‍♂️ :person_lifting_weights:
+# 🌳 :deciduous_tree:
+# 📈 :chart_with_upwards_trend:
+# 🎯 :direct_hit:
+# 🔌 :electric_plug:
+# 💡 :bulb:
+# ⚠️ :warning:
+# 🚀 :rocket:
+# 👁️‍🗨️ :eye_speech_bubble:
+# 🚨 :police_car_light:
+# ☁️ :cloud:
+# 📦 :package:
+# 📧 :e-mail:
+# 📚 :books:
