@@ -10,6 +10,20 @@ Este documento descreve o pipeline de predição de salário, um sistema de proc
 
 ![Arquitetura do Pipeline](arquitetura.png)  **(Diagrama a ser adicionado)**
 
+![Cursor_qUZuTbPWzw](https://github.com/user-attachments/assets/27454687-05dc-42ad-83a6-7a090c562c99)
+
+![Cursor_0JhKphQJcm](https://github.com/user-attachments/assets/2ab81073-ca30-490e-b748-9be6fc9f441f)
+
+![Cursor_WX1EzBvYsA](https://github.com/user-attachments/assets/4c87d7fe-8601-456f-b35d-ad791b379ea7)
+
+![Cursor_lWENYQBQtg](https://github.com/user-attachments/assets/f9194423-829f-4604-9f04-598eded8b790)
+
+![Cursor_amMPf6MTjk](https://github.com/user-attachments/assets/369a52f2-2cbd-44cc-82c6-3ac182d25f02)
+
+![Cursor_4mGS1zxdQh](https://github.com/user-attachments/assets/355f3f74-845f-4fed-a926-b7f4bc75c192)
+
+![Cursor_TEjzbgqgPT](https://github.com/user-attachments/assets/cd80bfaf-6430-4fe7-b212-88585676a825)
+
 ## Componentes Principais
 
 * **Gerador de Dados (`gerador_stream.py`):** 🏭 Gera dados sintéticos, simulando informações realistas de indivíduos.  A inspiração veio da capacidade de criação e inovação da natureza, que constantemente gera novas formas de vida.  Este componente é configurável através das variáveis de ambiente `TAMANHO_BUFFER` e `INTERVALO_GERACAO`.
