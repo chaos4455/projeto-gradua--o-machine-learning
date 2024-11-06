@@ -1,57 +1,45 @@
-# Sistema de Processamento de Stream de Dados - v1.0.0 (06/11/2024)
+# Projeto de Pipeline de Processamento de Stream
 
-**Elias Andrade - Arquiteto de Soluções Replika AI Solutions Maringá - PR**
+**Elias Andrade - Arquiteto de Soluções Replika AI Solutions Maringá - PR - 06/11/2024**
 
-Este repositório contém o código para um sistema de processamento de stream de dados que demonstra a construção de um pipeline de dados em tempo real, incluindo a geração de dados, normalização, treinamento de um modelo de Machine Learning e consumo de previsões.
+Este documento descreve o projeto de um pipeline de processamento de stream.  O pipeline é construído usando `asyncio` para processamento assíncrono e `loguru` para logging.
 
-## Visão Geral:
+## Visão Geral
 
-O sistema consiste em quatro componentes principais, cada um implementado como um serviço FastAPI:
+O pipeline consiste em vários serviços que trabalham em conjunto para processar um fluxo de dados.  Cada serviço é iniciado e monitorado individualmente.  O pipeline é projetado para ser robusto e tolerante a falhas, com monitoramento contínuo para garantir a integridade do processamento.
 
-* **Gerador de Dados:** Gera dados sintéticos em tempo real.
-* **Normalizador:** Normaliza os dados numéricos.
-* **Treinador:** Treina um modelo de regressão `RandomForestRegressor`.
-* **Consumidor:** Consome as previsões do modelo treinado.
+**Componentes Principais:**
 
-Cada componente é independente e se comunica via requisições HTTP.  A arquitetura é modular e escalável, permitindo a adição de novos componentes e funcionalidades no futuro.
+* **`main.py`**: Ponto de entrada do pipeline, responsável por iniciar e monitorar os serviços.
+* **`config.py`**: Define as configurações dos serviços.
+* **`service_monitor.py`**: Monitora o status dos serviços.
+* **`service_launcher.py`**: Inicia os serviços individuais.
+* **`consumidor_stream.py`**: Consome o stream de dados.
+* **`gerador_stream.py`**: Gera o stream de dados.
+* **`normalizador_stream.py`**: Normaliza os dados do stream.
+* **`treinador_stream.py`**: Treina um modelo com os dados do stream.
+* **`avaliador_modelo.py`**: Avalia o desempenho do modelo treinado.
 
-## Diagrama de Arquitetura:
+## Arquitetura
 
-(Incluir aqui o diagrama de arquitetura, possivelmente uma imagem)
+O pipeline segue uma arquitetura modular, permitindo a adição e remoção de serviços facilmente.  A comunicação entre os serviços é feita através de [método de comunicação a ser definido].
 
-## Como Executar:
+![Diagrama de Arquitetura](diagrama_arquitetura.png)
 
-1. **Requisitos:** Certifique-se de ter o Python 3.7+ e as bibliotecas listadas em `requirements.txt` instaladas.
-2. **Instalação:** Execute `pip install -r requirements.txt`.
-3. **Execução:** Execute cada componente em um terminal separado:
-    * `uvicorn gerador_stream:app --host 0.0.0.0 --port 8001`
-    * `uvicorn normalizador_stream:app --host 0.0.0.0 --port 8002`
-    * `uvicorn treinador_stream:app --host 0.0.0.0 --port 8003`
-    * `uvicorn consumidor_stream:app --host 0.0.0.0 --port 8005`
-
-## Documentação:
-
-A documentação detalhada de cada componente pode ser encontrada na pasta `docs/componentes`.  A arquitetura geral do sistema é descrita em `docs/arquitetura.md`.
-
-## Tecnologias Utilizadas:
+## Tecnologias Utilizadas
 
 * **Python:** Linguagem de programação principal.
-* **FastAPI:** Framework para APIs RESTful.
-* **Scikit-learn:** Biblioteca para Machine Learning.
-* **Faker:** Biblioteca para geração de dados sintéticos.
-* **Joblib:** Biblioteca para salvar e carregar modelos.
-* **Requests:** Biblioteca para requisições HTTP.
-* **Asyncio:** Para programação assíncrona.
+* **Asyncio:** Para processamento assíncrono.
+* **Loguru:** Para logging.
+* **[Outras tecnologias a serem adicionadas]**
 
-## Contribuições:
+## Próximos Passos
 
-Contribuições são bem-vindas!  Por favor, abra um *issue* ou *pull request* se você tiver alguma sugestão ou correção.
-
-## Licença:
-
-(Incluir aqui a licença do projeto)
+* Detalhar a arquitetura e a implementação de cada componente.
+* Adicionar diagramas e ilustrações.
+* Implementar testes unitários e de integração.
+* Criar documentação mais completa para cada componente.
 
 
-## Inspirações:
-
-Este projeto foi inspirado pela necessidade de demonstrar a construção de um pipeline de dados em tempo real utilizando tecnologias modernas.  A arquitetura é inspirada em sistemas de processamento de dados em larga escala, como aqueles usados em empresas de tecnologia.  A escolha das tecnologias se baseia em sua maturidade, performance e facilidade de uso.  O projeto demonstra a capacidade de criar sistemas complexos e robustos para aplicações de Machine Learning em tempo real, utilizando conceitos de microserviços e programação assíncrona.  A modularidade do sistema permite fácil expansão e manutenção.
+---
+🚀 **Inspirations:**  This project reminds me of the elegant simplicity of a well-oiled machine, like the T-800's endoskeleton in Terminator 2.  Each component works in perfect harmony, a testament to efficient design.  The asynchronous nature of the pipeline is reminiscent of the parallel processing power of a quantum computer, albeit on a smaller scale.

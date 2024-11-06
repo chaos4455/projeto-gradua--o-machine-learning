@@ -1,9 +1,0 @@
-2024-11-06 05:55:48,415 - StreamPipelineLauncher - INFO - Iniciando Pipeline de Streaming...
-2024-11-06 05:55:50,456 - StreamPipelineLauncher - INFO - Iniciado Gerador de Dados na porta 8001 (PID: 12884)
-2024-11-06 05:55:57,491 - StreamPipelineLauncher - INFO - Iniciado Normalizador na porta 8002 (PID: 6248)
-2024-11-06 05:56:04,501 - StreamPipelineLauncher - INFO - Iniciado Treinador na porta 8003 (PID: 17052)
-2024-11-06 05:56:11,525 - StreamPipelineLauncher - INFO - Iniciado Consumidor na porta 8005 (PID: 13820)
-2024-11-06 05:56:18,565 - StreamPipelineLauncher - INFO - Último consumo: 0.1914032734464374 em 2024-11-06T05:56:12.856891
-2024-11-06 05:57:20,597 - StreamPipelineLauncher - INFO - Último consumo: 0.04245322565865888 em 2024-11-06T05:57:14.917969
-2024-11-06 05:58:24,030 - StreamPipelineLauncher - INFO - Último consumo: 0.04245322565865888 em 2024-11-06T05:58:16.995364
-2024-11-06 05:59:31,057 - StreamPipelineLauncher - ERROR - Erro ao monitorar pipeline: HTTPConnectionPool(host='localhost', port=8005): Read timed out. (read timeout=5)

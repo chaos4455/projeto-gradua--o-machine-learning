@@ -1,0 +1,11 @@
+servicos:
+  gerador_stream:
+    porta: 8001
+  normalizador_stream:
+    porta: 8002
+  treinador_stream:
+    porta: 12779
+  consumidor_stream:
+    porta: 12780
+  avaliador_modelo:
+    porta: 12779 #Observação: avaliador usa a porta do treinador

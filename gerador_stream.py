@@ -18,8 +18,13 @@ app = FastAPI(title="Gerador de Dados")
 
 # Configurações do Gerador (tornando configuráveis)
 fake = Faker('pt_BR')
-TAMANHO_BUFFER = int(os.environ.get("TAMANHO_BUFFER", 1000))
-INTERVALO_GERACAO = int(os.environ.get("INTERVALO_GERACAO", 60))  # segundos
+TAMANHO_BUFFER = int(os.environ.get("TAMANHO_BUFFER", 15000)) # Aumentando o buffer para 15000
+INTERVALO_GERACAO = int(os.environ.get("INTERVALO_GERACAO", 300))  # segundos (5 minutos)
+
+# Carregando dados geográficos do Brasil (substitua pelo seu caminho)
+logger.warning("Leitura de shapefile desabilitada conforme solicitação do usuário. Usando dados sintéticos.")
+cidades = pd.DataFrame({'cidade': [fake.city() for _ in range(15000)], 'geometry': [None] * 15000})
+
 
 class EstadoGerador:
     def __init__(self):
@@ -40,26 +45,42 @@ async def gerar_dados_background():
     while True:
         try:
             geracao_id = str(uuid.uuid4())
-            dados = [{
-                'nome': fake.name(),
-                'idade': fake.random_int(18, 80),
-                'salario': round(random.uniform(1000, 15000), 2),
-                'cidade': fake.city(),
-                'cargo': fake.job(),
-                'timestamp': datetime.now().isoformat(),
-                'geracao_id': geracao_id
-            } for _ in range(TAMANHO_BUFFER)]
-            
+            dados = []
+            for _ in range(TAMANHO_BUFFER):
+                cidade = random.choice(cidades["cidade"])
+                # Dados sintéticos de IDH (substitua por dados reais se disponíveis)
+                idh = round(random.uniform(0.5, 0.9), 2)  
+                
+                # Dados geográficos (latitude e longitude aproximadas)
+                latitude = None
+                longitude = None
+
+                registro = {
+                    'nome': fake.name(),
+                    'idade': fake.random_int(18, 80),
+                    'salario': round(random.uniform(1000, 15000), 2),
+                    'cidade': cidade,
+                    'estado': fake.state(), # adicionando estado
+                    #'regiao': fake.region(), # removendo região
+                    'cargo': fake.job(),
+                    'idh': idh, # adicionando IDH
+                    'latitude': latitude, # adicionando latitude
+                    'longitude': longitude, # adicionando longitude
+                    'timestamp': datetime.now().isoformat(),
+                    'geracao_id': geracao_id
+                }
+                dados.append(registro)
+
             estado.dados_atuais = pd.DataFrame(dados)
             estado.ultima_geracao = datetime.now().isoformat()
             estado.total_geracoes += 1
-            estado.registros_gerados = len(dados)
-            
+            estado.registros_gerados += len(dados)
+
             logger.info(f"Geração ID: {geracao_id}, Gerados {len(dados)} novos registros. Tamanho do buffer: {TAMANHO_BUFFER}, Intervalo de geração: {INTERVALO_GERACAO} segundos. Total de registros gerados: {estado.registros_gerados}")
-            
+
         except Exception as e:
             logger.exception(f"Erro na geração de dados: {str(e)}") # Log com traceback
-        
+
         await asyncio.sleep(INTERVALO_GERACAO)
 
 @app.on_event("startup")

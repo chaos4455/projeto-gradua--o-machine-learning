@@ -22,36 +22,36 @@ logging.basicConfig(
 
 logger = logging.getLogger('StreamPipelineLauncher')
 
-# Configuração dos serviços
+# Configuração dos serviços com novas portas
 SERVICES = [
     {
         'name': 'Gerador de Dados',
-        'file': 'gerador_stream.py',
-        'port': 8001,
+        'file': 'gerador_stream',
+        'port': 12777,
         'process': None,
         'max_retries': 3,
         'retry_delay': 10
     },
     {
         'name': 'Normalizador',
-        'file': 'normalizador_stream.py',
-        'port': 8002,
+        'file': 'normalizador_stream',
+        'port': 12778,
         'process': None,
         'max_retries': 3,
         'retry_delay': 10
     },
     {
         'name': 'Treinador',
-        'file': 'treinador_stream.py',
-        'port': 8003,
+        'file': 'treinador_stream',
+        'port': 12779,
         'process': None,
         'max_retries': 3,
         'retry_delay': 10
     },
     {
         'name': 'Consumidor',
-        'file': 'consumidor_stream.py',
-        'port': 8005,
+        'file': 'consumidor_stream',
+        'port': 12780,
         'process': None,
         'max_retries': 3,
         'retry_delay': 10
@@ -64,29 +64,31 @@ def check_port(port):
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         return s.connect_ex(('localhost', port)) == 0
 
-def start_service(service, retry_count=0):
+def start_service(service):
     """Inicia um serviço específico com tratamento de erros e reinicialização"""
     try:
-        if check_port(service['port']):
-            if retry_count < service['max_retries']:
-                logger.warning(f"Porta {service['port']} ocupada. Tentativa {retry_count+1} de {service['max_retries']} para iniciar {service['name']}. Tentando novamente em {service['retry_delay']} segundos...")
-                time.sleep(service['retry_delay'])
-                return start_service(service, retry_count + 1)
-            else:
-                logger.error(f"Porta {service['port']} ocupada. Número máximo de tentativas excedido para iniciar {service['name']}")
-                return None
+        # Verifica se o arquivo existe antes de tentar executar
+        module_path = f"{service['file']}.py"
+        if not os.path.exists(module_path):
+            logger.error(f"Arquivo {module_path} não encontrado")
+            return None
 
         process = subprocess.Popen(
-            ['python', service['file']],
+            ['python', '-m', 'uvicorn', f"{service['file']}:app", '--host', '0.0.0.0', '--port', str(service['port'])],
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
             universal_newlines=True
         )
-        logger.info(f"Iniciado {service['name']} na porta {service['port']} (PID: {process.pid})")
-        return process
-    except FileNotFoundError:
-        logger.error(f"Arquivo {service['file']} não encontrado!")
-        return None
+        time.sleep(2)  # Aguarda inicialização
+        
+        # Verifica se o processo está rodando
+        if process.poll() is None:
+            logger.info(f"Iniciado {service['name']} na porta {service['port']} (PID: {process.pid})")
+            return process
+        else:
+            logger.error(f"Falha ao iniciar {service['name']}")
+            return None
+            
     except Exception as e:
         logger.error(f"Erro ao iniciar {service['name']}: {str(e)}")
         return None
@@ -139,7 +141,7 @@ def monitor_services():
 async def monitor_pipeline():
     while True:
         try:
-            response = requests.get("http://localhost:8005/status", timeout=5)
+            response = requests.get("http://localhost:12780/status", timeout=5)
             response.raise_for_status() # Raise HTTPError for bad responses (4xx or 5xx)
             status = response.json()
             logger.info(f"Último consumo: {status['ultima_predicao']} em {status['ultima_tentativa']}")
@@ -157,6 +159,7 @@ if __name__ == "__main__":
 
     try:
         start_pipeline()
+        monitor_services() # adicionando monitoramento de serviços
         asyncio.run(monitor_pipeline())
     except KeyboardInterrupt:
         logger.info("Interrupção manual detectada")

@@ -1,0 +1,7 @@
+2024-11-06 06:58:52,083 - StreamPipelineLauncher - INFO - Iniciando Pipeline de Streaming...
+2024-11-06 06:58:54,089 - StreamPipelineLauncher - INFO - Iniciado Gerador de Dados na porta 12777 (PID: 7500)
+2024-11-06 06:59:01,092 - StreamPipelineLauncher - INFO - Iniciado Normalizador na porta 12778 (PID: 6244)
+2024-11-06 06:59:08,097 - StreamPipelineLauncher - INFO - Iniciado Treinador na porta 12779 (PID: 14980)
+2024-11-06 06:59:15,100 - StreamPipelineLauncher - INFO - Iniciado Consumidor na porta 12780 (PID: 12848)
+2024-11-06 06:59:20,104 - StreamPipelineLauncher - WARNING - Gerador de Dados caiu! Tentando reiniciar...
+2024-11-06 06:59:22,108 - StreamPipelineLauncher - INFO - Iniciado Gerador de Dados na porta 12777 (PID: 14836)

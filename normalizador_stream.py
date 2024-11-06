@@ -9,6 +9,7 @@ from datetime import datetime
 from pydantic import BaseModel
 import os
 import uuid
+import time
 
 app = FastAPI(title="Normalizador")
 logger = logging.getLogger(__name__)
@@ -37,6 +38,25 @@ async def coletar_e_normalizar():
         try:
             normalizacao_id = str(uuid.uuid4())
             logger.info(f"Normalização ID: {normalizacao_id} - Iniciando coleta e normalização de dados.")
+
+            # Verificação de status do gerador
+            for attempt in range(3):
+                try:
+                    status_response = requests.get("http://localhost:8001/status", timeout=5)
+                    status_response.raise_for_status()
+                    status = status_response.json()
+                    if status["status"] == "ativo":
+                        break
+                    logger.warning(f"Gerador indisponível. Tentativa {attempt+1}/3. Tentando novamente em 5 segundos...")
+                    time.sleep(5)
+                except requests.exceptions.RequestException as e:
+                    logger.warning(f"Erro ao verificar status do gerador: {e}. Tentando novamente em 5 segundos...")
+                    time.sleep(5)
+            else:
+                logger.error(f"Gerador indisponível após múltiplas tentativas.")
+                await asyncio.sleep(INTERVALO_NORMALIZACAO)
+                continue
+
             response = requests.get("http://localhost:8001/dados", timeout=5)
             response.raise_for_status() # Raise HTTPError for bad responses (4xx or 5xx)
             dados = pd.DataFrame(response.json())
@@ -46,7 +66,10 @@ async def coletar_e_normalizar():
                 logger.warning(f"Normalização ID: {normalizacao_id} - Algumas colunas numéricas não encontradas: {set(colunas_numericas) - set(dados.columns)}")
                 continue # Pula para a próxima iteração se as colunas não existirem
 
-            dados[colunas_numericas] = estado.scaler.fit_transform(dados[colunas_numericas])
+            # Normaliza apenas as colunas numéricas
+            dados_numericos = dados[colunas_numericas]
+            dados_normalizados_numericos = estado.scaler.fit_transform(dados_numericos)
+            dados[colunas_numericas] = dados_normalizados_numericos
             
             estado.dados_normalizados = dados
             estado.ultima_normalizacao = datetime.now().isoformat()

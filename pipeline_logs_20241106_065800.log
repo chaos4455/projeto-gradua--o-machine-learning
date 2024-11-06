@@ -1,0 +1,5 @@
+2024-11-06 06:58:00,822 - StreamPipelineLauncher - INFO - Iniciando Pipeline de Streaming...
+2024-11-06 06:58:02,827 - StreamPipelineLauncher - INFO - Iniciado Gerador de Dados na porta 12777 (PID: 3360)
+2024-11-06 06:58:09,843 - StreamPipelineLauncher - INFO - Iniciado Normalizador na porta 12778 (PID: 68)
+2024-11-06 06:58:16,900 - StreamPipelineLauncher - INFO - Iniciado Treinador na porta 12779 (PID: 13580)
+2024-11-06 06:58:23,903 - StreamPipelineLauncher - INFO - Iniciado Consumidor na porta 12780 (PID: 1448)

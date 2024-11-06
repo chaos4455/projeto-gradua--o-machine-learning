@@ -13,6 +13,7 @@ import os
 import asyncio
 from typing import Dict
 import json
+import aiohttp
 
 # Configuração inicial
 console = Console()
@@ -40,29 +41,37 @@ COLORS = {
 
 class ServiceMonitor:
     def __init__(self):
-        self.services = {
-            'gerador': {'port': 8001, 'status': 'offline', 'last_data': None, 'metrics': {}},
-            'normalizador': {'port': 8002, 'status': 'offline', 'last_data': None, 'metrics': {}},
-            'treinador': {'port': 8003, 'status': 'offline', 'last_data': None, 'metrics': {}},
-            'consumidor': {'port': 8005, 'status': 'offline', 'last_data': None, 'metrics': {}}
-        }
-        self.last_update = datetime.now()
+        self.services = {}
+        for service in SERVICES:
+            self.services[service['name']] = {
+                'port': service['port'],
+                'status': 'offline',
+                'last_check': None,
+                'metrics': {}
+            }
 
-    async def check_service(self, name: str, port: int) -> None:
-        """Verifica o status de um serviço específico"""
-        try:
-            url = f"http://localhost:{port}/status"
-            response = requests.get(url, timeout=2)
-            response.raise_for_status()
-            data = response.json()
-            self.services[name]['status'] = 'online'
-            self.services[name]['last_data'] = data
-            self.services[name]['metrics'] = data
+    async def check_services(self):
+        """Verifica o status de todos os serviços"""
+        while True:
+            for service_name, service_info in self.services.items():
+                try:
+                    async with aiohttp.ClientSession() as session:
+                        async with session.get(
+                            f"http://localhost:{service_info['port']}/status",
+                            timeout=2
+                        ) as response:
+                            if response.status == 200:
+                                data = await response.json()
+                                service_info['status'] = 'online'
+                                service_info['last_check'] = datetime.now()
+                                service_info['metrics'] = data
+                            else:
+                                service_info['status'] = 'error'
+                except Exception as e:
+                    service_info['status'] = 'offline'
+                    logger.error(f"Erro ao verificar {service_name}: {str(e)}")
             
-        except requests.exceptions.RequestException as e:
-            self.services[name]['status'] = 'offline'
-            self.services[name]['metrics'] = {}
-            print(f"Erro ao acessar {url}: {e}")
+            await asyncio.sleep(10)  # Verifica a cada 10 segundos
 
     def create_status_table(self) -> Table:
         """Cria tabela de status dos serviços"""
@@ -124,11 +133,6 @@ class ServiceMonitor:
         minutes, seconds = divmod(remainder, 60)
         return f"{hours:02d}:{minutes:02d}:{seconds:02d}"
 
-    async def update_services(self) -> None:
-        """Atualiza o status de todos os serviços"""
-        for service_name, info in self.services.items():
-            await self.check_service(service_name, info['port'])
-
     def create_layout(self) -> Layout:
         """Cria o layout principal da interface"""
         layout = Layout()
@@ -158,7 +162,7 @@ async def main():
     
     with Live(monitor.create_layout(), refresh_per_second=1, screen=True) as live:
         while True:
-            await monitor.update_services()
+            await monitor.check_services()
             live.update(monitor.create_layout())
             await asyncio.sleep(1)
 

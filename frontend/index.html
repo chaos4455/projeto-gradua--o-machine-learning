@@ -1,17 +1,67 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Predição de Modelo</title>
-<link rel="stylesheet" href="styles.css">
+<title>Monitor de Pipeline</title>
+<style>
+body {
+  font-family: sans-serif;
+}
+#status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+.status-item {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 300px;
+}
+.status-item h3 {
+  margin-top: 0;
+}
+.status-item p {
+  margin-bottom: 0;
+}
+</style>
 </head>
 <body>
-  <h1>Predição de Modelo</h1>
-  <div>
-    <label for="features">Features:</label>
-    <input type="text" id="features" placeholder="e.g., 1,2,3,4,5">
-  </div>
-  <button id="predict">Predizer</button>
-  <div id="result"></div>
-  <script src="script.js"></script>
+<h1>Monitor de Pipeline de Streaming</h1>
+<div id="status"></div>
+<script>
+const statusDiv = document.getElementById('status');
+
+async function updateStatus() {
+  try {
+    const response = await fetch('/api/status');
+    const data = await response.json();
+
+    statusDiv.innerHTML = ''; // Limpa o conteúdo anterior
+
+    const statusItems = [
+      { title: 'Última Predição', value: data.ultima_predicao, emoji: '🔮' },
+      { title: 'Total de Consumos', value: data.total_consumos, emoji: '📈' },
+      { title: 'Última Tentativa', value: data.ultima_tentativa, emoji: '⏱️' },
+      { title: 'Erros', value: data.erros, emoji: '⚠️' }
+    ];
+
+    statusItems.forEach(item => {
+      const div = document.createElement('div');
+      div.classList.add('status-item');
+      div.innerHTML = `<h3>${item.emoji} ${item.title}</h3><p>${item.value}</p>`;
+      statusDiv.appendChild(div);
+    });
+
+  } catch (error) {
+    console.error('Erro ao atualizar status:', error);
+    statusDiv.innerHTML = '<p>Erro ao obter dados do servidor.</p>';
+  }
+}
+
+setInterval(updateStatus, 5000); // Atualiza a cada 5 segundos
+updateStatus(); // Chamada inicial
+</script>
 </body>
 </html>
