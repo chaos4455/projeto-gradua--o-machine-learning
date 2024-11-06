@@ -10,3 +10,4 @@
 2024-11-06 06:06:01,076 - StreamPipelineLauncher - INFO - Último consumo: -0.09214550816316354 em 2024-11-06T06:05:55.194482
 2024-11-06 06:07:03,122 - StreamPipelineLauncher - INFO - Último consumo: -0.0007414985243954864 em 2024-11-06T06:06:57.251161
 2024-11-06 06:08:06,344 - StreamPipelineLauncher - INFO - Último consumo: -0.0007414985243954864 em 2024-11-06T06:07:59.309422
+2024-11-06 06:09:13,399 - StreamPipelineLauncher - ERROR - Erro ao monitorar pipeline: HTTPConnectionPool(host='localhost', port=8005): Read timed out. (read timeout=5)
