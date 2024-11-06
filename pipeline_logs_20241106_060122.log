@@ -1,1 +1,12 @@
 2024-11-06 06:01:22,524 - StreamPipelineLauncher - INFO - Iniciando Pipeline de Streaming...
+2024-11-06 06:01:24,755 - StreamPipelineLauncher - INFO - Iniciado Gerador de Dados na porta 8001 (PID: 6768)
+2024-11-06 06:01:31,789 - StreamPipelineLauncher - INFO - Iniciado Normalizador na porta 8002 (PID: 11484)
+2024-11-06 06:01:38,805 - StreamPipelineLauncher - INFO - Iniciado Treinador na porta 8003 (PID: 16988)
+2024-11-06 06:01:45,834 - StreamPipelineLauncher - INFO - Iniciado Consumidor na porta 8005 (PID: 15064)
+2024-11-06 06:01:52,884 - StreamPipelineLauncher - INFO - Último consumo: -0.05510039184448034 em 2024-11-06T06:01:47.034479
+2024-11-06 06:02:54,932 - StreamPipelineLauncher - INFO - Último consumo: -0.3890920504223376 em 2024-11-06T06:02:49.081873
+2024-11-06 06:03:56,983 - StreamPipelineLauncher - INFO - Último consumo: -0.1546115238036006 em 2024-11-06T06:03:51.140320
+2024-11-06 06:04:59,041 - StreamPipelineLauncher - INFO - Último consumo: -0.3005412451523303 em 2024-11-06T06:04:53.154498
+2024-11-06 06:06:01,076 - StreamPipelineLauncher - INFO - Último consumo: -0.09214550816316354 em 2024-11-06T06:05:55.194482
+2024-11-06 06:07:03,122 - StreamPipelineLauncher - INFO - Último consumo: -0.0007414985243954864 em 2024-11-06T06:06:57.251161
+2024-11-06 06:08:06,344 - StreamPipelineLauncher - INFO - Último consumo: -0.0007414985243954864 em 2024-11-06T06:07:59.309422
